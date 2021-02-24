@@ -17,7 +17,7 @@ const Navbar = ({logout, isAuthenticated}) => {
   );
 
   const authLinks = () => (
-    <Link className="nav-item nav-link" onClick={logout}>
+    <Link className="nav-item nav-link" onClick={logout} to='/#'>
       Logout
     </Link>
   );

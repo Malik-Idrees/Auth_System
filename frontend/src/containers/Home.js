@@ -5,7 +5,7 @@ const Home = () => (
   <div className="container">
     <div className="jumbotron mt-5">
       <h1 className="display-4">Welcome to Auth System!</h1>
-      <p className="lead">Authentication System Built witj Django and Djoser</p>
+      <p className="lead">Authentication System Built with Django and Djoser</p>
       <hr className="my-4" />
       <p>Click The LogIn Button</p>
       <p className="lead">
