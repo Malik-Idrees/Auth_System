@@ -1,5 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-const ResetPassword = () => <div>ResetPassword</div>;
+import { reset_password } from "../actions/auth";
 
-export default ResetPassword;
+const ResetPassword = ({ reset_password }) => {
+  const [requestSent, setRequestSent] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+  });
+
+  const { email } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    reset_password(email);
+    setRequestSent(true);
+  };
+
+  //Is the password reset Email is sent
+  //Redirect them to home page
+  if (requestSent) {
+    return <Redirect to="/" />;
+  }
+
+  return (
+    <div className="container mt-5">
+      <h1>Request Password Reset!</h1>
+      <form onSubmit={(e) => onSubmit(e)}>
+        <div className="form-group">
+          <input
+            className="form-control m-1 "
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={email}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
+        <div className="form-group">
+          <button className="btn btn-primary m-1" type="submit">
+            Reset Password
+          </button>
+        </div>
+      </form>
+      
+    </div>
+  );
+};
+
+
+export default connect(null, { reset_password })(ResetPassword);

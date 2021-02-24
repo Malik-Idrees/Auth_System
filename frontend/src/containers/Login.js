@@ -53,10 +53,10 @@ const Login = ({ login, isAuthenticated }) => {
             required
             minLength="6"
           />
-          <button className="btn btn-primary m-1" type="submit">
-            Login
-          </button>
         </div>
+        <button className="btn btn-primary m-1" type="submit">
+          Login
+        </button>
       </form>
       <p className="mt-3">
         Don't have an account? <Link to="/signup">Sign Up</Link>

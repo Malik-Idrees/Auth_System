@@ -7,27 +7,27 @@ const Navbar = ({logout, isAuthenticated}) => {
 
   const guestLinks = () => (
     <Fragment>
-      <Link class="nav-item nav-link" to="/login">
+      <Link className="nav-item nav-link" to="/login">
         Login
       </Link>
-      <Link class="nav-item nav-link" to="/signup">
+      <Link className="nav-item nav-link" to="/signup">
         Sign Up
       </Link>
     </Fragment>
   );
 
   const authLinks = () => (
-    <Link class="nav-item nav-link" onClick={logout}>
+    <Link className="nav-item nav-link" onClick={logout}>
       Logout
     </Link>
   );
 return(
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <Link class="navbar-brand" to="/">
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <Link className="navbar-brand" to="/">
       Auth System
     </Link>
     <button
-      class="navbar-toggler"
+      className="navbar-toggler"
       type="button"
       data-toggle="collapse"
       data-target="#navbarNavAltMarkup"
@@ -35,12 +35,12 @@ return(
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <Link class="nav-item nav-link active" to="/">
-          Home <span class="sr-only">(current)</span>
+    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div className="navbar-nav">
+        <Link className="nav-item nav-link active" to="/">
+          Home <span className="sr-only">(current)</span>
         </Link>
         {isAuthenticated ? authLinks() : guestLinks()}
       </div>
