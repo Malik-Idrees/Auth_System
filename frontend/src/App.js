@@ -37,3 +37,5 @@ const App = () => {
 };
 
 export default App;
+// "build": "rm -rf ../backend/build && react-scripts build && cp -r build ../backend/build"
+// "build": "react-scripts build",

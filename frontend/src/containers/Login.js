@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 
 import {login} from '../actions/auth';
 
-const Login = ({login}) => {
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const { email, password } = formData;
@@ -23,6 +23,9 @@ const Login = ({login}) => {
 
   //Is the user Authenticated
   //Redirect them to home page
+  if(isAuthenticated){
+    return <Redirect to='/' />
+  }
 
   return (
     <div className="container mt-5">
@@ -65,7 +68,7 @@ const Login = ({login}) => {
   );
 };
 
-//const mapStateToProps = state =>{
-    //Is Authenticated?
-//}
-export default connect(null,{ login })(Login);
+const mapStateToProps = state =>({
+    isAuthenticated : state.auth.isAuthenticated
+})
+export default connect(mapStateToProps,{ login })(Login);
